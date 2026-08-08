@@ -105,7 +105,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="pt-4 border-t border-black/10 dark:border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+          <div className="pt-4 border-t border-black/10 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center justify-center items-center w-full">
             {stats.map((stat, idx) => (
               <div key={idx} className="p-3 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5">
                 <div className="text-2xl md:text-3xl font-black text-indigo-600 dark:text-indigo-400 font-mono">

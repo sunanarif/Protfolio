@@ -15,8 +15,7 @@ export default function Projects() {
       liveUrl: "https://idea-vault-amber-three.vercel.app/",
       type: "image",
       images: [
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&auto=format&fit=crop&q=80",
+        "/images/ideavault.png"
       ],
     },
     {
@@ -29,8 +28,7 @@ export default function Projects() {
       liveUrl: "https://keen-keeper-seven-beige.vercel.app/",
       type: "image",
       images: [
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&auto=format&fit=crop&q=80",
+        "/images/keenkeeper.png",
       ],
     },
     {
@@ -43,8 +41,7 @@ export default function Projects() {
       liveUrl: "https://qurbani-haat-three.vercel.app/",
       type: "image",
       images: [
-        "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop&q=80",
-        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=600&auto=format&fit=crop&q=80",
+        "/images/qurbani.png"
       ],
     },
   ];
@@ -125,13 +122,13 @@ export default function Projects() {
 
               {/* Visual Card (Terminal or Image Showcase) */}
               <div
-                className={`lg:col-span-6 ${
+                className={`lg:col-span-6 w-full ${
                   isEven ? "lg:order-2" : "lg:order-1"
                 }`}
               >
-                <div className="relative group rounded-xl p-1 bg-gradient-to-br from-zinc-200/80 via-zinc-100/80 to-transparent dark:from-gray-800/50 dark:via-gray-900/40 dark:to-transparent">
+                <div className="relative group rounded-xl p-1 bg-gradient-to-br from-zinc-200/80 via-zinc-100/80 to-transparent dark:from-gray-800/50 dark:via-gray-900/40 dark:to-transparent w-full">
                   {/* Outer Frame Effect */}
-                  <div className="relative rounded-lg overflow-hidden border border-zinc-200/80 bg-white/90 p-4 md:p-6 shadow-2xl dark:border-gray-800/80 dark:bg-[#0d131a]">
+                  <div className="relative rounded-lg overflow-hidden border border-zinc-200/80 bg-white/90 p-4 md:p-6 shadow-2xl dark:border-gray-800/80 dark:bg-[#0d131a] w-full">
                     {project.type === "terminal" ? (
                       /* Terminal Display */
                       <div className="font-mono text-xs md:text-sm leading-relaxed text-zinc-700 space-y-1 max-h-[260px] overflow-y-auto dark:text-gray-300">
@@ -151,21 +148,15 @@ export default function Projects() {
                         ))}
                       </div>
                     ) : (
-                      /* Dual Image Showcase */
-                      <div className="grid grid-cols-2 gap-3 h-[240px]">
-                        {project.images.map((imgUrl, i) => (
-                          <div
-                            key={i}
-                            className="relative w-full h-full rounded-md overflow-hidden bg-zinc-200 dark:bg-gray-900"
-                          >
-                            <Image
-                              src={imgUrl}
-                              alt={`${project.title} preview ${i + 1}`}
-                              fill
-                              className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
-                        ))}
+                      /* Single project preview image inside its dedicated box */
+                      <div className="relative w-full h-[260px] md:h-[320px] overflow-hidden rounded-md bg-zinc-200 dark:bg-gray-900">
+                        <Image
+                          src={project.images[0]}
+                          alt={`${project.title} preview`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 50vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
                       </div>
                     )}
                   </div>
