@@ -1,26 +1,71 @@
 @import "tailwindcss";
+@import "@heroui/styles";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@variant dark (&:where(.dark, .dark *));
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    scroll-behavior: smooth;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Base Light Mode Styles */
+.mesh-bg {
+  background-color: #f4f4f6;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(240, 10%, 92%, 1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(220, 20%, 95%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(280, 10%, 93%, 1) 0, transparent 50%);
+  color: #09090b;
+}
+
+/* Dark Mode Mesh Background */
+.dark .mesh-bg, html.dark .mesh-bg {
+  background-color: #0a0a0a;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,10%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,19%,10%,1) 0, transparent 50%);
+  color: #ffffff;
+}
+
+/* Base Light Mode Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  color: #09090b;
+}
+
+/* Dark Mode Glass Card */
+.dark .glass-card, html.dark .glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+}
+
+/* Base Light Mode HUD Line */
+.hud-line {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Mode HUD Line */
+.dark .hud-line, html.dark .hud-line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Aura Glow */
+.aura-glow {
+  box-shadow: 0 0 40px 10px rgba(99, 102, 241, 0.15);
+}
+
+.dark .aura-glow, html.dark .aura-glow {
+  box-shadow: 0 0 40px 10px rgba(200, 200, 255, 0.15);
 }
