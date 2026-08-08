@@ -45,7 +45,6 @@ export default function About() {
       : skills.filter((skill) => skill.category === activeTab);
 
   const stats = [
-    { value: "2+", label: "Years Experience", detail: "Hands-on Development" },
     { value: "15+", label: "Projects Built", detail: "Full Stack & Web Apps" },
     { value: "100%", label: "Client Focus", detail: "Dedicated & Responsive" },
     { value: "99.9%", label: "Clean Code", detail: "Scalable Architecture" },
